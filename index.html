@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Zhu</title>
-  <meta name="description" content="David Zhu — Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Systems builder across the full stack, from many-core OS to large-scale distributed databases.">
+  <meta name="description" content="David Zhu — Distributed systems engineer and researcher. Building data infrastructure for AI and analytics at scale. PhD UC Berkeley.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="David Zhu">
-  <meta property="og:description" content="Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Systems builder across the full stack, from many-core OS to large-scale distributed databases.">
+  <meta property="og:description" content="Distributed systems engineer and researcher. Building data infrastructure for AI and analytics at scale. PhD UC Berkeley.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/736171?v=4">
   <meta property="og:url" content="https://yuzhu.github.io">
   <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@davidyuzhu">
   <meta name="twitter:title" content="David Zhu">
-  <meta name="twitter:description" content="Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Systems builder across the full stack, from many-core OS to large-scale distributed databases.">
+  <meta name="twitter:description" content="Distributed systems engineer and researcher. Building data infrastructure for AI and analytics at scale. PhD UC Berkeley.">
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/736171?v=4">
 
   <!-- Favicon -->
@@ -66,10 +66,11 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 3rem 1.5rem;
+      padding: 0 1.5rem 3rem;
+      border-top: 3px solid var(--accent);
     }
 
-    main { max-width: 680px; width: 100%; }
+    main { max-width: 680px; width: 100%; padding-top: 2.75rem; }
 
     /* Header with avatar */
     header {
@@ -97,6 +98,14 @@
     .tagline {
       color: var(--muted);
       font-size: 1.05rem;
+    }
+
+    /* Hero statement */
+    .hero-statement {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      color: var(--text);
     }
 
     /* Jump nav */
@@ -206,6 +215,22 @@
       color: var(--muted);
       margin-bottom: 0;
     }
+
+    /* Now section */
+    .now-callout {
+      padding: 1.1rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card-bg);
+    }
+
+    .now-callout p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .now-callout p:last-child { margin-bottom: 0; }
 
     /* Publications */
     .pub-list { list-style: none; }
@@ -335,7 +360,8 @@
     }
 
     @media (max-width: 480px) {
-      body { padding: 2rem 1rem; }
+      body { padding: 0 1rem 2rem; }
+      main { padding-top: 2rem; }
       header { flex-direction: column; text-align: center; }
       .avatar { width: 72px; height: 72px; }
       h1 { font-size: 1.6rem; }
@@ -346,7 +372,7 @@
 
     /* Print */
     @media print {
-      body { padding: 0; font-size: 11pt; }
+      body { padding: 0; font-size: 11pt; border-top: none; }
       nav, .links svg { display: none; }
       a { color: var(--text); text-decoration: underline; }
       .links a { border: none; padding: 0; background: none; }
@@ -364,14 +390,22 @@
       <img class="avatar" src="https://avatars.githubusercontent.com/u/736171?v=4" alt="David Zhu" width="80" height="80">
       <div>
         <h1>David Zhu</h1>
-        <p class="tagline">Tech Lead Manager &amp; PMC, Alluxio &middot; PhD, UC Berkeley</p>
+        <p class="tagline">Engineering Manager &amp; PMC, Alluxio &middot; PhD, UC Berkeley</p>
       </div>
     </header>
 
+    <p class="hero-statement">
+      I build the infrastructure layer between data and compute &mdash; metadata engines,
+      consensus protocols, caching systems for AI and analytics workloads at scale. I
+      contribute to open source and speak at conferences about what I learn shipping
+      production systems.
+    </p>
+
     <nav>
       <a href="#about">About</a>
-      <a href="#experience">Experience</a>
+      <a href="#now">Now</a>
       <a href="#featured">Featured</a>
+      <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#talks">Talks</a>
       <a href="#writing">Writing</a>
@@ -383,28 +417,62 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        I'm a systems builder with a deep appreciation for the infrastructure that
-        makes modern computing possible. My background spans the full stack &mdash;
-        from single-node multi-core operating systems to large-scale distributed
-        databases &mdash; and I enjoy the challenge of bridging academic research
-        and practical, production-grade implementation.
+        Two decades of systems work, bottom-up: OS schedulers for many-core processors
+        at UC Berkeley&rsquo;s <a href="https://amplab.cs.berkeley.edu" target="_blank" rel="noopener">AMPLab</a>,
+        a zero-downtime schema evolution system as my PhD dissertation, and now the
+        metadata and caching infrastructure at the core of
+        <a href="https://www.alluxio.io" target="_blank" rel="noopener">Alluxio</a>&rsquo;s
+        data orchestration layer. The common thread is building systems that are
+        designed to run correctly in production &mdash; not just to demonstrate an idea
+        in a paper.
       </p>
       <p>
-        At <a href="https://www.alluxio.io" target="_blank" rel="noopener">Alluxio</a>
-        I lead metadata management, performance benchmarking, and end-to-end
-        optimizations as a Tech Lead Manager and PMC member. Having navigated both
-        engineering management and individual contributor roles, I've found my sweet
-        spot in solving deep technical bottlenecks while helping teams navigate
-        complex architectural trade-offs.
+        At Alluxio I lead as Engineering Manager and PMC member: metadata management,
+        high-availability consensus (we migrated from ZooKeeper to Raft), and a
+        next-generation query service targeting AI agentic workloads. I&rsquo;ve moved
+        between deep individual contributor work and engineering management, and the
+        combination has made me more effective at both &mdash; I understand the
+        implementation details that make architectural decisions matter, and I
+        understand the organizational constraints that determine what actually gets
+        built.
       </p>
       <p>
-        The thread runs from OS research on
-        <a href="http://akaros.org" target="_blank" rel="noopener">Akaros</a> at
-        UC Berkeley's <a href="https://amplab.cs.berkeley.edu" target="_blank" rel="noopener">AMPLab</a>,
-        to building <em>Ratchet</em> for automated online schema evolution (PhD,
-        advisor <a href="https://people.eecs.berkeley.edu/~brewer/" target="_blank" rel="noopener">Eric Brewer</a>),
-        to the data infrastructure world &mdash; Alluxio, Presto, Trino, and Apache Iceberg.
+        The problems I find most interesting sit at the boundary between research and
+        production: how compute-storage disaggregation behaves under real workloads,
+        how AI is changing the contract between applications and data systems, and how
+        large language models are reshaping the practice of software engineering. I
+        contribute to <a href="https://github.com/prestodb/presto" target="_blank" rel="noopener">Presto</a>,
+        <a href="https://github.com/trinodb/trino" target="_blank" rel="noopener">Trino</a>,
+        and <a href="https://github.com/apache/iceberg" target="_blank" rel="noopener">Apache Iceberg</a>,
+        and I write and speak about what I learn.
       </p>
+    </section>
+
+    <section id="now">
+      <h2>Now</h2>
+      <div class="now-callout">
+        <p>
+          Architecting Alluxio&rsquo;s next-generation in-cache query service &mdash;
+          targeting sub-millisecond data access latency at multi-cluster scale for AI
+          agentic workloads. Also exploring GPU Direct Storage and RDMA as an
+          acceleration path for LLM training data pipelines.
+        </p>
+      </div>
+    </section>
+
+    <section id="featured">
+      <h2>Featured Work</h2>
+      <div class="featured">
+        <h3>Ratchet &mdash; Automated Online Schema Evolution</h3>
+        <p>
+          My PhD dissertation system that lets database administrators perform
+          efficient, zero-downtime schema evolution on PostgreSQL. Ratchet uses
+          fine-grained locking and a delayed-copy strategy to migrate schemas
+          without taking the database offline. Validated by automatically
+          replaying five years of Wikimedia schema changes.
+          <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2017/EECS-2017-218.html" target="_blank" rel="noopener">Read the dissertation &rarr;</a>
+        </p>
+      </div>
     </section>
 
     <section id="experience">
@@ -452,21 +520,6 @@
           cloud data lake query optimization. Served as technical liaison for a
           community of 8,000+ open source developers.
         </div>
-      </div>
-    </section>
-
-    <section id="featured">
-      <h2>Featured Work</h2>
-      <div class="featured">
-        <h3>Ratchet &mdash; Automated Online Schema Evolution</h3>
-        <p>
-          My PhD dissertation system that lets database administrators perform
-          efficient, zero-downtime schema evolution on PostgreSQL. Ratchet uses
-          fine-grained locking and a delayed-copy strategy to migrate schemas
-          without taking the database offline. Validated by automatically
-          replaying five years of Wikimedia schema changes.
-          <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2017/EECS-2017-218.html" target="_blank" rel="noopener">Read the dissertation &rarr;</a>
-        </p>
       </div>
     </section>
 
