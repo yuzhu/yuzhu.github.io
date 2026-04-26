@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Zhu</title>
-  <meta name="description" content="David Zhu — Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Systems, distributed databases, and performance.">
+  <meta name="description" content="David Zhu — Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Systems builder across the full stack, from many-core OS to large-scale distributed databases.">
 
   <!-- Open Graph -->
   <meta property="og:title" content="David Zhu">
-  <meta property="og:description" content="Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Distributed systems, database internals, and performance engineering.">
+  <meta property="og:description" content="Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Systems builder across the full stack, from many-core OS to large-scale distributed databases.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/736171?v=4">
   <meta property="og:url" content="https://yuzhu.github.io">
   <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@davidyuzhu">
   <meta name="twitter:title" content="David Zhu">
-  <meta name="twitter:description" content="Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Distributed systems, database internals, and performance engineering.">
+  <meta name="twitter:description" content="Tech Lead Manager & PMC at Alluxio. PhD UC Berkeley. Systems builder across the full stack, from many-core OS to large-scale distributed databases.">
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/736171?v=4">
 
   <!-- Favicon -->
@@ -163,21 +163,26 @@
 
     .links svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-    /* Interest tags */
-    .interests {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+    /* Interest areas */
+    .interest-areas { list-style: none; }
+
+    .interest-areas li {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .interests li {
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      background: var(--tag-bg);
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
+    .interest-areas li:last-child { border-bottom: none; }
+
+    .interest-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .interest-desc {
       color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
     }
 
     /* Featured project callout */
@@ -341,30 +346,33 @@
       <a href="#writing">Writing</a>
       <a href="#oss">Open Source</a>
       <a href="#education">Education</a>
+      <a href="#interests">Interests</a>
     </nav>
 
     <section id="about">
       <h2>About</h2>
       <p>
-        I build and lead teams working on distributed data infrastructure. At
-        <a href="https://www.alluxio.io" target="_blank" rel="noopener">Alluxio</a>,
+        I'm a systems builder with a deep appreciation for the infrastructure that
+        makes modern computing possible. My background spans the full stack &mdash;
+        from single-node multi-core operating systems to large-scale distributed
+        databases &mdash; and I enjoy the challenge of bridging academic research
+        and practical, production-grade implementation.
+      </p>
+      <p>
+        At <a href="https://www.alluxio.io" target="_blank" rel="noopener">Alluxio</a>
         I lead metadata management, performance benchmarking, and end-to-end
-        optimizations as a Tech Lead Manager and Project Management Committee member.
+        optimizations as a Tech Lead Manager and PMC member. Having navigated both
+        engineering management and individual contributor roles, I've found my sweet
+        spot in solving deep technical bottlenecks while helping teams navigate
+        complex architectural trade-offs.
       </p>
       <p>
-        My path through systems has followed a thread from low-level up: I started
-        with OS research on <a href="http://akaros.org" target="_blank" rel="noopener">Akaros</a>,
-        a many-core operating system at UC Berkeley's
-        <a href="https://amplab.cs.berkeley.edu" target="_blank" rel="noopener">AMPLab</a>,
-        then built <em>Ratchet</em>, a system for automated online schema evolution
-        in PostgreSQL, for my PhD under
-        <a href="https://people.eecs.berkeley.edu/~brewer/" target="_blank" rel="noopener">Eric Brewer</a>.
-        That work on making live database changes safe and automatic led me to the
-        data infrastructure world &mdash; Alluxio, Presto, Trino, and Apache Iceberg.
-      </p>
-      <p>
-        Broadly interested in all things systems &mdash; distributed systems, database
-        internals, operating systems &mdash; especially the performance side.
+        The thread runs from OS research on
+        <a href="http://akaros.org" target="_blank" rel="noopener">Akaros</a> at
+        UC Berkeley's <a href="https://amplab.cs.berkeley.edu" target="_blank" rel="noopener">AMPLab</a>,
+        to building <em>Ratchet</em> for automated online schema evolution (PhD,
+        advisor <a href="https://people.eecs.berkeley.edu/~brewer/" target="_blank" rel="noopener">Eric Brewer</a>),
+        to the data infrastructure world &mdash; Alluxio, Presto, Trino, and Apache Iceberg.
       </p>
     </section>
 
@@ -542,16 +550,37 @@
       </ul>
     </section>
 
-    <section>
+    <section id="interests">
       <h2>Interests</h2>
-      <ul class="interests">
-        <li>Distributed Systems</li>
-        <li>Database Internals</li>
-        <li>Operating Systems</li>
-        <li>Performance Engineering</li>
-        <li>Data Infrastructure</li>
-        <li>Query Engines</li>
-        <li>Open Source</li>
+      <ul class="interest-areas">
+        <li>
+          <div class="interest-label">Data Infrastructure</div>
+          <div class="interest-desc">
+            Particularly interested in the tension between compute and storage
+            disaggregation. While "moving data to compute" and "moving compute to
+            data" are often framed as binary choices, the future lies in an
+            adaptive architecture that balances elasticity with data locality.
+            Partial code shipping &mdash; predicate pushdown being the prime
+            example &mdash; should be the norm, not the exception.
+          </div>
+        </li>
+        <li>
+          <div class="interest-label">Architecting for AI</div>
+          <div class="interest-desc">
+            Exploring how systems can be optimized to support the next generation
+            of autonomous AI agents. Interested in both <em>Agents for Systems</em>
+            (debugging, SRE, auto-tuning) and <em>Systems for Agents</em> (the
+            infra layer that makes agentic AI reliable and fast).
+          </div>
+        </li>
+        <li>
+          <div class="interest-label">LLM-based Engineering Excellence</div>
+          <div class="interest-desc">
+            Fostering a culture where technical rigor meets pragmatic, scalable
+            software design. Exploring how LLMs can simplify engineering processes
+            and make teams more productive.
+          </div>
+        </li>
       </ul>
     </section>
 
