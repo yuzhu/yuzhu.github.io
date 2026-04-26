@@ -290,6 +290,36 @@
     .writing-title { font-weight: 600; font-size: 0.95rem; }
     .writing-meta { color: var(--muted); font-size: 0.85rem; margin-top: 0.1rem; }
 
+    /* Experience */
+    .exp-entry {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-entry:last-child { border-bottom: none; }
+
+    .exp-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-title { font-weight: 600; font-size: 0.95rem; }
+
+    .exp-dates {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-left: auto;
+    }
+
+    .exp-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
     /* Education */
     .edu-list { list-style: none; }
     .edu-list li { padding: 0.5rem 0; }
@@ -340,6 +370,7 @@
 
     <nav>
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#featured">Featured</a>
       <a href="#publications">Publications</a>
       <a href="#talks">Talks</a>
@@ -374,6 +405,54 @@
         advisor <a href="https://people.eecs.berkeley.edu/~brewer/" target="_blank" rel="noopener">Eric Brewer</a>),
         to the data infrastructure world &mdash; Alluxio, Presto, Trino, and Apache Iceberg.
       </p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <p style="font-weight:600; margin-bottom:0.75rem;">
+        <a href="https://www.alluxio.io" target="_blank" rel="noopener" style="color:var(--text)">Alluxio</a>
+        <span style="font-weight:400; color:var(--muted); font-size:0.9rem;"> &middot; San Mateo, CA &middot; 2018 &ndash; Present</span>
+      </p>
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-title">Engineering Manager / Senior Staff Engineer</span>
+          <span class="exp-dates">Sep 2022 – Present</span>
+        </div>
+        <div class="exp-desc">
+          Architecting the next-generation in-cache query service for sub-millisecond
+          access latency at multi-cluster scale, targeting AI agentic workloads.
+          Leading the investigation of GPU-accelerated data pipelines using GPU Direct
+          Storage and RDMA for LLM training and low-latency inference. Built a
+          RAG-based internal system using AWS Bedrock and vector databases to
+          streamline engineering workflows.
+        </div>
+      </div>
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-title">Tech Lead Manager, Metadata &amp; Architecture Review Board</span>
+          <span class="exp-dates">Oct 2021 – Sep 2022</span>
+        </div>
+        <div class="exp-desc">
+          Led technical design for Alluxio 2.x and 3.x core re-architecture, enabling
+          multi-cluster federation for larger file counts. As an ARB member, evaluated
+          and approved critical system designs, enforcing consistency models and
+          scalability patterns across the codebase. Mentored senior engineers into
+          component owners through deep code review and architectural guidance.
+        </div>
+      </div>
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-title">Software Engineer, Core Team (PMC Member)</span>
+          <span class="exp-dates">Apr 2018 – Oct 2021</span>
+        </div>
+        <div class="exp-desc">
+          Designed and implemented foundational metadata features including Active Sync,
+          ACLs, and the Catalog Service. Refactored synchronization logic to achieve a
+          7x throughput improvement. Contributed patches to Presto and Iceberg for
+          cloud data lake query optimization. Served as technical liaison for a
+          community of 8,000+ open source developers.
+        </div>
+      </div>
     </section>
 
     <section id="featured">
@@ -412,6 +491,10 @@
           <div class="pub-title">Processes and Resource Management in a Scalable Many-Core OS</div>
           <div class="pub-authors">Kevin Klues, Barret Rhoden, Andrew Waterman, David Zhu, Eric Brewer</div>
           <div class="pub-venue">HotPar, 2010</div>
+        </li>
+        <li>
+          <div class="pub-title">TaintEraser: Protecting Sensitive Data with Application-Level Taint Tracking</div>
+          <div class="pub-venue">ACM SIGOPS Operating Systems Review (OSR), 2011</div>
         </li>
       </ul>
       <p style="margin-top: 0.75rem;">
@@ -544,7 +627,11 @@
           <div class="edu-school">UC Berkeley &mdash; Advisor: Eric Brewer &middot; AMPLab</div>
         </li>
         <li>
-          <div class="edu-degree">BSE, Software Engineering</div>
+          <div class="edu-degree">M.S., Computer Science</div>
+          <div class="edu-school">UC Berkeley &mdash; Thesis: Privacy Scope: Precise Information Flow Tracking</div>
+        </li>
+        <li>
+          <div class="edu-degree">B.S., Software Engineering (Distinction)</div>
           <div class="edu-school">University of Waterloo</div>
         </li>
       </ul>
@@ -621,7 +708,7 @@
     </section>
 
     <footer>
-      <p>&copy; 2025 David Zhu</p>
+      <p>&copy; 2026 David Zhu</p>
     </footer>
   </main>
 </body>
