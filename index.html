@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Zhu</title>
+  <meta name="description" content="David Zhu — Engineering Manager at Alluxio. PhD UC Berkeley. Systems, distributed databases, and performance.">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #222;
+      --muted: #666;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --border: #e5e5e5;
+      --card-bg: #fff;
+      --tag-bg: #f3f4f6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111;
+        --text: #e5e5e5;
+        --muted: #999;
+        --accent: #60a5fa;
+        --accent-hover: #93bbfd;
+        --border: #2a2a2a;
+        --card-bg: #1a1a1a;
+        --tag-bg: #1e1e1e;
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+    }
+
+    main { max-width: 680px; width: 100%; }
+
+    header { margin-bottom: 2.5rem; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    section { margin-bottom: 2.25rem; }
+
+    h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    p { margin-bottom: 0.75rem; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    /* Social links */
+    .links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .links a:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+      text-decoration: none;
+    }
+
+    .links svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* Interest tags */
+    .interests {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .interests li {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Publications */
+    .pub-list { list-style: none; }
+
+    .pub-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-list li:last-child { border-bottom: none; }
+
+    .pub-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .pub-authors {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.15rem;
+    }
+
+    .pub-venue {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-style: italic;
+      margin-top: 0.1rem;
+    }
+
+    /* Open source projects */
+    .projects {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .projects li {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-bg);
+      transition: border-color 0.2s;
+    }
+
+    .projects li:hover { border-color: var(--accent); }
+
+    .projects a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .projects a:hover { color: var(--accent); }
+
+    .proj-desc {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    .proj-lang {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .proj-lang::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+
+    /* Education */
+    .edu-list { list-style: none; }
+
+    .edu-list li {
+      padding: 0.5rem 0;
+    }
+
+    .edu-degree { font-weight: 600; font-size: 0.95rem; }
+    .edu-school { color: var(--muted); font-size: 0.9rem; }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>David Zhu</h1>
+      <p class="tagline">Engineering Manager, Alluxio &middot; PhD, UC Berkeley</p>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        I'm a software engineering manager at <a href="https://www.alluxio.io" target="_blank" rel="noopener">Alluxio</a>,
+        where I focus on metadata management and end-to-end performance benchmarking
+        and optimizations. I completed my PhD at UC Berkeley under
+        <a href="https://people.eecs.berkeley.edu/~brewer/" target="_blank" rel="noopener">Eric Brewer</a>,
+        researching distributed data management systems and operating systems for the data center.
+      </p>
+      <p>
+        Broadly interested in all things systems &mdash; distributed systems, database internals,
+        operating systems &mdash; especially the performance aspect of these systems.
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul class="edu-list">
+        <li>
+          <div class="edu-degree">PhD, Computer Science</div>
+          <div class="edu-school">UC Berkeley &mdash; Advisor: Eric Brewer</div>
+        </li>
+        <li>
+          <div class="edu-degree">BSE, Software Engineering</div>
+          <div class="edu-school">University of Waterloo</div>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Publications</h2>
+      <ul class="pub-list">
+        <li>
+          <div class="pub-title">
+            <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2017/EECS-2017-218.html" target="_blank" rel="noopener">Towards Automated Online Schema Evolution</a>
+          </div>
+          <div class="pub-authors">Yu Zhu</div>
+          <div class="pub-venue">UC Berkeley PhD Dissertation, 2017</div>
+        </li>
+        <li>
+          <div class="pub-title">
+            <a href="https://dl.acm.org/doi/10.1145/2038916.2038941" target="_blank" rel="noopener">Improving Per-Node Efficiency in the Datacenter with New OS Abstractions</a>
+          </div>
+          <div class="pub-authors">Barret Rhoden, Kevin Klues, David Zhu, Eric Brewer</div>
+          <div class="pub-venue">SoCC 2011</div>
+        </li>
+        <li>
+          <div class="pub-title">Processes and Resource Management in a Scalable Many-Core OS</div>
+          <div class="pub-authors">Kevin Klues, Barret Rhoden, Andrew Waterman, David Zhu, Eric Brewer</div>
+          <div class="pub-venue">HotPar 2010</div>
+        </li>
+      </ul>
+      <p style="margin-top: 0.75rem;">
+        <a href="https://scholar.google.com/citations?user=_E2vC4UAAAAJ" target="_blank" rel="noopener">Google Scholar &rarr;</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Open Source</h2>
+      <ul class="projects">
+        <li>
+          <a href="https://github.com/Alluxio/alluxio" target="_blank" rel="noopener">Alluxio</a>
+          <div class="proj-desc">Data orchestration for analytics and machine learning in the cloud</div>
+          <span class="proj-lang">Java</span>
+        </li>
+        <li>
+          <a href="https://github.com/prestodb/presto" target="_blank" rel="noopener">Presto</a>
+          <div class="proj-desc">Distributed SQL query engine for big data</div>
+          <span class="proj-lang">Java</span>
+        </li>
+        <li>
+          <a href="https://github.com/trinodb/trino" target="_blank" rel="noopener">Trino</a>
+          <div class="proj-desc">Fast distributed SQL query engine for big data analytics</div>
+          <span class="proj-lang">Java</span>
+        </li>
+        <li>
+          <a href="https://github.com/apache/iceberg" target="_blank" rel="noopener">Apache Iceberg</a>
+          <div class="proj-desc">High-performance table format for huge analytic datasets</div>
+          <span class="proj-lang">Java</span>
+        </li>
+        <li>
+          <a href="https://github.com/yuzhu/oseproxy" target="_blank" rel="noopener">OSEProxy</a>
+          <div class="proj-desc">Proxy for online schema evolution</div>
+          <span class="proj-lang">Java</span>
+        </li>
+        <li>
+          <a href="https://github.com/yuzhu/mesos-akaros" target="_blank" rel="noopener">Mesos-Akaros</a>
+          <div class="proj-desc">Port of Apache Mesos to the Akaros research OS</div>
+          <span class="proj-lang">C++</span>
+        </li>
+      </ul>
+      <p style="margin-top: 0.75rem;">
+        <a href="https://github.com/yuzhu" target="_blank" rel="noopener">All repositories on GitHub &rarr;</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Interests</h2>
+      <ul class="interests">
+        <li>Distributed Systems</li>
+        <li>Database Internals</li>
+        <li>Operating Systems</li>
+        <li>Performance Engineering</li>
+        <li>Data Infrastructure</li>
+        <li>Query Engines</li>
+        <li>Open Source</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Links</h2>
+      <ul class="links">
+        <li>
+          <a href="https://github.com/yuzhu" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.38c.6.11.82-.26.82-.58v-2.16c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 00-1.33-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 011.84 1.24 2.56 2.56 0 003.5 1 2.56 2.56 0 01.76-1.61c-2.67-.3-5.47-1.33-5.47-5.93a4.64 4.64 0 011.24-3.22 4.3 4.3 0 01.12-3.18s1-.32 3.3 1.23a11.38 11.38 0 016 0c2.28-1.55 3.28-1.23 3.28-1.23a4.3 4.3 0 01.12 3.18 4.64 4.64 0 011.24 3.22c0 4.61-2.81 5.63-5.48 5.92a2.87 2.87 0 01.82 2.23v3.29c0 .32.21.7.82.58A12 12 0 0012 .3"/></svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?user=_E2vC4UAAAAJ" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5l12-3 12 3-4.135 3.076V18.5l-7.865 4-7.758-4v-4.731zm0 1.231V18.5l7.758 4 7.865-4v-3.5L12 19l-6.758-3.5v-.5z"/></svg>
+            Scholar
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/davidyuzhu" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            @davidyuzhu
+          </a>
+        </li>
+        <li>
+          <a href="mailto:davidyuzhu@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+            Email
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 David Zhu</p>
+    </footer>
+  </main>
+</body>
+</html>
