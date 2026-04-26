@@ -396,9 +396,11 @@
 
     <p class="hero-statement">
       I build the infrastructure layer between data and compute &mdash; metadata engines,
-      consensus protocols, caching systems for AI and analytics workloads at scale. I
-      contribute to open source and speak at conferences about what I learn shipping
-      production systems.
+      consensus protocols, and caching for AI and analytics workloads. Contributor to
+      <a href="https://github.com/prestodb/presto" target="_blank" rel="noopener">Presto</a>,
+      <a href="https://github.com/trinodb/trino" target="_blank" rel="noopener">Trino</a>,
+      and <a href="https://github.com/apache/iceberg" target="_blank" rel="noopener">Apache Iceberg</a>.
+      I write and speak about what I learn building these systems.
     </p>
 
     <nav>
@@ -420,31 +422,24 @@
         Two decades of systems work, bottom-up: OS schedulers for many-core processors
         at UC Berkeley&rsquo;s <a href="https://amplab.cs.berkeley.edu" target="_blank" rel="noopener">AMPLab</a>,
         a zero-downtime schema evolution system as my PhD dissertation, and now the
-        metadata and caching infrastructure at the core of
-        <a href="https://www.alluxio.io" target="_blank" rel="noopener">Alluxio</a>&rsquo;s
-        data orchestration layer. The common thread is building systems that are
-        designed to run correctly in production &mdash; not just to demonstrate an idea
-        in a paper.
+        metadata and caching layer of
+        <a href="https://www.alluxio.io" target="_blank" rel="noopener">Alluxio</a>.
+        The common thread is building systems designed to run correctly in production
+        &mdash; not just to demonstrate an idea in a paper.
       </p>
       <p>
         At Alluxio I lead as Engineering Manager and PMC member: metadata management,
         high-availability consensus (we migrated from ZooKeeper to Raft), and a
-        next-generation query service targeting AI agentic workloads. I&rsquo;ve moved
-        between deep individual contributor work and engineering management, and the
-        combination has made me more effective at both &mdash; I understand the
-        implementation details that make architectural decisions matter, and I
-        understand the organizational constraints that determine what actually gets
-        built.
+        next-generation query service targeting AI agentic workloads. The role spans
+        both deep IC work and engineering management &mdash; I tend to drift toward
+        whichever is the bottleneck.
       </p>
       <p>
         The problems I find most interesting sit at the boundary between research and
         production: how compute-storage disaggregation behaves under real workloads,
         how AI is changing the contract between applications and data systems, and how
-        large language models are reshaping the practice of software engineering. I
-        contribute to <a href="https://github.com/prestodb/presto" target="_blank" rel="noopener">Presto</a>,
-        <a href="https://github.com/trinodb/trino" target="_blank" rel="noopener">Trino</a>,
-        and <a href="https://github.com/apache/iceberg" target="_blank" rel="noopener">Apache Iceberg</a>,
-        and I write and speak about what I learn.
+        large language models are reshaping the practice of software engineering itself.
+        The work I do now sits in the middle of all three.
       </p>
     </section>
 
@@ -722,18 +717,20 @@
         <li>
           <div class="interest-label">Architecting for AI</div>
           <div class="interest-desc">
-            Exploring how systems can be optimized to support the next generation
-            of autonomous AI agents. Interested in both <em>Agents for Systems</em>
-            (debugging, SRE, auto-tuning) and <em>Systems for Agents</em> (the
-            infra layer that makes agentic AI reliable and fast).
+            Two halves of one problem: <em>Agents for Systems</em> (LLMs handling
+            debugging, SRE, auto-tuning) and <em>Systems for Agents</em> (infrastructure
+            tuned for agentic workloads). The interesting questions sit at the boundary
+            &mdash; what changes about caching, scheduling, and observability when the
+            consumer is an agent that can retry indefinitely.
           </div>
         </li>
         <li>
-          <div class="interest-label">LLM-based Engineering Excellence</div>
+          <div class="interest-label">LLMs in Engineering Practice</div>
           <div class="interest-desc">
-            Fostering a culture where technical rigor meets pragmatic, scalable
-            software design. Exploring how LLMs can simplify engineering processes
-            and make teams more productive.
+            How LLMs are reshaping the day-to-day of engineering: code review, debugging,
+            documentation, the small frictions that weren&rsquo;t worth automating before.
+            Less interested in headline benchmarks; more interested in whether teams are
+            actually faster six months in.
           </div>
         </li>
       </ul>
